@@ -1,0 +1,29 @@
+{
+  "name": "gcr-blue-green",
+  "version": "1.0.0",
+  "description": "Sample app to implement blue green deployment",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucasgouvea/gcr-blue-green.git"
+  },
+  "keywords": [
+    "google",
+    "cloud",
+    "run",
+    "blue",
+    "green"
+  ],
+  "author": "Lucas Gouvea",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lucasgouvea/gcr-blue-green/issues"
+  },
+  "homepage": "https://github.com/lucasgouvea/gcr-blue-green#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
