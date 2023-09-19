@@ -1,5 +1,7 @@
+APP_VERSION=$(jq -r '.version' package.json)
+
 build:
-	docker build -t gcr-blue-green .
+	docker build -t gcr-blue-green:$(APP_VERSION) .
 
 run:
-	docker run -p 3000:3000 gcr-blue-green
+	docker run -p 3000:3000 gcr-blue-green:$(APP_VERSION)
