@@ -1,5 +1,3 @@
-APP_VERSION=$(jq -r '.version' package.json)
-
 build:
 	docker build -t gcr-blue-green:$(APP_VERSION) .
 

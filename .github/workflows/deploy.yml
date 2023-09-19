@@ -18,3 +18,12 @@ jobs:
 
       - name: Build
         run: make build
+
+      - name: Extract version from package.json
+        uses: sergeysova/jq-action@v2
+        id: version
+        with:
+          cmd: jq .version package.json -r
+      
+      - name: Show my version
+        run: APP_VERSION="version ${{ steps.version.outputs.value }}"
