@@ -6,7 +6,7 @@ on:
       - '*'
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -16,14 +16,13 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Build
-        run: make build
-
       - name: Extract version from package.json
         uses: sergeysova/jq-action@v2
         id: version
         with:
           cmd: jq .version package.json -r
       
-      - name: Show my version
+      - name: Setup APP_VERSION
         run: APP_VERSION="version ${{ steps.version.outputs.value }}"
+      - name: Build
+        run: make build
