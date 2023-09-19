@@ -21,8 +21,6 @@ jobs:
         id: version
         with:
           cmd: jq .version package.json -r
-      
-      - name: Setup APP_VERSION
-        run: APP_VERSION="version ${{ steps.version.outputs.value }}"
+
       - name: Build
-        run: make build
+        run: docker build -t gcr-blue-green:${{ steps.version.outputs.value }} .
