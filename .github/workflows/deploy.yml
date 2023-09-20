@@ -28,7 +28,7 @@ jobs:
           cmd: jq .version package.json -r
 
       - name: Build
-        run: docker build -t gcr-blue-green:${{ steps.version.outputs.value }} .
+        run: docker build -t us-east4-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/gcr-blue-green:${{ steps.version.outputs.value }} .
 
       - name: Push
         run: docker push us-east4-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/gcr-blue-green:${{ steps.version.outputs.value }}
