@@ -33,6 +33,17 @@ jobs:
       - name: Push
         run: docker push us-east4-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/gcr-blue-green:${{ steps.version.outputs.value }}
 
+
+      - name: Docker build + push
+        uses: RafikFarhad/push-to-gcr-github-action@v5-beta
+        with:
+          registry: gcr.io
+          project_id: ${{ secrets.GCP_PROJECT_ID }}
+          image_name: us-east4-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/gcr-blue-green
+          image_tag: ${{ steps.version.outputs.value }}
+          dockerfile: ./Dockerfile
+          context: .
+          
       - id: deploy
         name: Deploy
         uses: google-github-actions/deploy-cloudrun@main
