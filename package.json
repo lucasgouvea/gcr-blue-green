@@ -1,6 +1,6 @@
 {
   "name": "gcr-blue-green",
-  "version": "1.4.6",
+  "version": "1.4.7",
   "description": "Sample app to implement blue green deployment",
   "main": "index.js",
   "scripts": {
