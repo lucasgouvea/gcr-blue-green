@@ -40,7 +40,7 @@ jobs:
         with:
           service: gcr-blue-green
           image: us-east4-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/gcr-blue-green:${{ steps.version.outputs.value }}
-          region: us-east4
+          region: us-central1
       
       - name: Healthcheck
         run: curl ${{ steps.deploy.outputs.url }}
